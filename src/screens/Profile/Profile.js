@@ -8,6 +8,9 @@ import {
   Content,
   Button,
   Text,
+  Tabs,
+  Tab,
+  TabHeading,
 } from 'native-base';
 import Icon from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
@@ -15,6 +18,7 @@ import {SwipeablePanel} from 'rn-swipeable-panel';
 
 import StorySection from './StorySection';
 import PostsSection from './PostsSection';
+import TaggedPostsSection from './TaggedPostsSection';
 
 import styles from './styles';
 import images from '../../constants/images';
@@ -125,7 +129,24 @@ const Profile = () => {
         <View style={styles.storyWrapper}>
           <StorySection />
         </View>
-        <PostsSection />
+        <Tabs tabBarUnderlineStyle={{backgroundColor: '#fff'}}>
+          <Tab
+            heading={
+              <TabHeading style={styles.tabStyle}>
+                <Icon name="image" color="#fff" size={24} />
+              </TabHeading>
+            }>
+            <PostsSection />
+          </Tab>
+          <Tab
+            heading={
+              <TabHeading style={styles.tabStyle}>
+                <Icon name="tv" color="#fff" size={24} />
+              </TabHeading>
+            }>
+            <TaggedPostsSection />
+          </Tab>
+        </Tabs>
       </Content>
       <SwipeablePanel {...panelProps} isActive={bottomPanel}></SwipeablePanel>
     </Container>

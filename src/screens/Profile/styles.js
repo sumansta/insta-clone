@@ -100,6 +100,9 @@ const styles = StyleSheet.create({
   storyWrapper: {
     marginHorizontal: 10,
   },
+  tabStyle: {
+    backgroundColor: appColors.DARK,
+  },
 });
 
 export default styles;
